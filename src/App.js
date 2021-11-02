@@ -1,23 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
 
 function App() {
+  let [counter, setCounter] = useState(0);
+
+  function inc() {
+    setCounter(counter + 1);
+  }
+
+  function dec() {
+    setCounter(counter - 1);
+  }
+
+  function reset() {
+    setCounter((counter = 0));
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div
+      className="App"
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        flexDirection: "column",
+      }}
+    >
+      <h1 style={{ color: "#592ED3", fontSize: "3rem" }}>{counter}</h1>
+      <div className="content">
+        <button style={{ marginRight: "1rem" }} onClick={() => dec()}>
+          -
+        </button>
+        <button style={{ marginRight: "1rem" }} onClick={() => inc()}>
+          +
+        </button>
+        <button onClick={() => reset()}>reset</button>
+      </div>
     </div>
   );
 }
