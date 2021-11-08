@@ -1,40 +1,27 @@
-import React, { useState } from "react";
+import React from "react";
+
+import User from "./components/User";
+import Collapse from "./components/Collapse";
 
 function App() {
-  let [counter, setCounter] = useState(0);
-
-  function inc() {
-    setCounter(counter + 1);
-  }
-
-  function dec() {
-    setCounter(counter - 1);
-  }
-
-  function reset() {
-    setCounter((counter = 0));
-  }
-
   return (
     <div
       className="App"
       style={{
         display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        flexDirection: "column",
+        justifyContent: "space-between",
+        width: "100%",
       }}
     >
-      <h1 style={{ color: "#592ED3", fontSize: "3rem" }}>{counter}</h1>
-      <div className="content">
-        <button style={{ marginRight: "1rem" }} onClick={() => dec()}>
-          -
-        </button>
-        <button style={{ marginRight: "1rem" }} onClick={() => inc()}>
-          +
-        </button>
-        <button onClick={() => reset()}>reset</button>
-      </div>
+      <Collapse href="collapseExample1">
+        <User userId="1" userText="User text 1"></User>
+      </Collapse>
+      <Collapse href="collapseExample2">
+        <User userId="2" userText="User text 2"></User>
+      </Collapse>
+      <Collapse href="collapseExample3">
+        <User userId="3" userText="User text 3"></User>
+      </Collapse>
     </div>
   );
 }
